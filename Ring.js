@@ -16,13 +16,13 @@ export default class Ring extends React.Component {
 const styles = StyleSheet.create({
     ringContainer: {
         flex: 1,
-        borderRadius: '50',
+        borderRadius: 50,
         aspectRatio: 1,
         padding: 12,
     },
     innerContainer: {
         flex: 1,
-        borderRadius: '50',
+        borderRadius: 50,
         aspectRatio: 1,
         justifyContent: 'center',
         alignItems: 'center',
