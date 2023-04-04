@@ -26,7 +26,7 @@ export default class RingDisplay extends React.Component {
     render() {
         return (
             <View style={{width: 120, height: 120,}}>
-                <Ring ringColor={`hsl(${360 * (this.state.tokenDisplay / 1000)}, 100%, 50%)`} innerColor={"#c7cb85"} content={`${Math.round(this.state.tokenDisplay)} TK`} style={{fontSize: this.state.fontSize}}></Ring>
+                <Ring ringColor={`hsl(${360 * (this.state.tokenDisplay / 500)}, 100%, 50%)`} innerColor={"#c7cb85"} content={`${Math.round(this.state.tokenDisplay)} TK`} style={{fontSize: this.state.fontSize}}></Ring>
             </View>
         )
     }
