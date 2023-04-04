@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { NavigationContainer } from "@react-navigation/native"
 import { View, TouchableOpacity } from 'react-native'
+import { SafeAreaView } from "react-native-safe-area-context"
 
 import Home from "./Tabs/Home"
 import Leaderboard from "./Tabs/Leaderboard"
@@ -67,7 +68,8 @@ function MyTabBar({ state, descriptors, navigation }) {
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <SafeAreaView>
+      <NavigationContainer>
       <Tabs.Navigator tabBar={(props) => <MyTabBar {...props} />}>
         <Tabs.Screen name="Profile" options={{headerShown: false, icon: faUser}} component={Profile} />
         <Tabs.Screen name="Leaderboard" options={{headerShown: false, icon: faTrophy}} component={Leaderboard} />
@@ -77,5 +79,6 @@ export default function App() {
       </Tabs.Navigator>
       
     </NavigationContainer>
+    </SafeAreaView>
   )
 }
