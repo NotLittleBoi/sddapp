@@ -9,34 +9,35 @@ export default function Home() {
   const [collectedTokens, setCollectedTokens] = useState(0)
   const [location, setLocation] = useState()
 
-  useEffect(() => {
+ /* useEffect(() => {
     navigator.geolocation.watchPosition((position) => {
       setLocation(`${position.coords.latitude} ${position.coords.longitude} ${position.coords.accuracy} ${position.coords.altitude}`)
       console.log("Got location")
     })
-  }, [])
+  }, []) 
+  */
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-    <View style={styles.homebackground}>
+    <SafeAreaView style={styles.homebackground}>
       
-    </View>
-    <View style = {styles.topName}>
+    </SafeAreaView>
+    <SafeAreaView style = {styles.topName}>
       <Text style = {styles.topNameText}>
           Hello, {accountName}
         </Text>
-    </View>
+    </SafeAreaView>
     <TouchableHighlight onPress={() => {
       setCollectedTokens(collectedTokens + 50)
     }}>
       <Text>Add 50 TK</Text>
     </TouchableHighlight>
     <Text style={{fontSize: 24}}>{location}</Text>
-    <View style={styles.row}>
+    <SafeAreaView style={styles.row}>
       <RingDisplay tokens={collectedTokens} />
-    </View>
-    </View>
+    </SafeAreaView>
+    </SafeAreaView>
   );
 }
 
