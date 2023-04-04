@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, ImageBackground, TouchableHighlight, Pressable, Touchable } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, TouchableHighlight, Pressable, Touchable, SafeAreaView } from 'react-native';
 import Ring from '../Ring';
 import RingDisplay from '../RingDisplay';
 
