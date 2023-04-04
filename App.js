@@ -15,7 +15,7 @@ const Tabs = createBottomTabNavigator()
 
 function MyTabBar({ state, descriptors, navigation }) {
   return (
-    <SafeAreaView style={{ flexDirection: 'row', backgroundColor: '#0b6e4f' }}>
+    <SafeAreaView edges={["left", "bottom", "right"]} style={{ flexDirection: 'row', backgroundColor: '#0b6e4f' }}>
       {state.routes.map((route, index) => {
         const selected = state.index == index
         const { options } = descriptors[route.key];
