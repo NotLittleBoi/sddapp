@@ -15,7 +15,7 @@ const Tabs = createBottomTabNavigator()
 
 function MyTabBar({ state, descriptors, navigation }) {
   return (
-    <View style={{ flexDirection: 'row', backgroundColor: '#0b6e4f' }}>
+    <SafeAreaView style={{ flexDirection: 'row', backgroundColor: '#0b6e4f' }}>
       {state.routes.map((route, index) => {
         const selected = state.index == index
         const { options } = descriptors[route.key];
@@ -62,13 +62,12 @@ function MyTabBar({ state, descriptors, navigation }) {
           </TouchableOpacity>
         );
       })}
-    </View>
+    </SafeAreaView>
   );
 }
 
 export default function App() {
   return (
-    <SafeAreaView>
       <NavigationContainer>
       <Tabs.Navigator tabBar={(props) => <MyTabBar {...props} />}>
         <Tabs.Screen name="Profile" options={{headerShown: false, icon: faUser}} component={Profile} />
@@ -79,6 +78,5 @@ export default function App() {
       </Tabs.Navigator>
       
     </NavigationContainer>
-    </SafeAreaView>
   )
 }

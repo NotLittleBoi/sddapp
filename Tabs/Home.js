@@ -18,7 +18,7 @@ export default function Home() {
   */
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
     <View style={styles.homebackground}>
       
@@ -37,7 +37,7 @@ export default function Home() {
     <View style={styles.row}>
       <RingDisplay tokens={collectedTokens} />
     </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
