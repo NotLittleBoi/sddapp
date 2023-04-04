@@ -20,23 +20,23 @@ export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-    <SafeAreaView style={styles.homebackground}>
+    <View style={styles.homebackground}>
       
-    </SafeAreaView>
-    <SafeAreaView style = {styles.topName}>
+    </View>
+    <View style = {styles.topName}>
       <Text style = {styles.topNameText}>
           Hello, {accountName}
         </Text>
-    </SafeAreaView>
+    </View>
     <TouchableHighlight onPress={() => {
       setCollectedTokens(collectedTokens + 50)
     }}>
       <Text>Add 50 TK</Text>
     </TouchableHighlight>
     <Text style={{fontSize: 24}}>{location}</Text>
-    <SafeAreaView style={styles.row}>
+    <View style={styles.row}>
       <RingDisplay tokens={collectedTokens} />
-    </SafeAreaView>
+    </View>
     </SafeAreaView>
   );
 }
