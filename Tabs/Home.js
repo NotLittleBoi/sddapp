@@ -14,6 +14,7 @@ export default function Home() {
       setLocation(`${position.coords.latitude} ${position.coords.longitude} ${position.coords.accuracy} ${position.coords.altitude}`)
       console.log("Got location")
       var enableHighAccuracy = true;
+      geolocation.requestAuthorization(); 
     })
   }, []) 
 
