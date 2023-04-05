@@ -9,13 +9,13 @@ export default function Home() {
   const [collectedTokens, setCollectedTokens] = useState(0)
   const [location, setLocation] = useState()
 
- /* useEffect(() => {
+      useEffect(() => {
     navigator.geolocation.watchPosition((position) => {
       setLocation(`${position.coords.latitude} ${position.coords.longitude} ${position.coords.accuracy} ${position.coords.altitude}`)
       console.log("Got location")
+      var enableHighAccuracy = true;
     })
   }, []) 
-  */
 
   return (
     <SafeAreaView style={styles.container}>
