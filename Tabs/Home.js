@@ -1,22 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, ImageBackground, TouchableHighlight, Pressable, Touchable, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, TouchableHighlight, Pressable, Touchable, SafeAreaView, watchPosition} from 'react-native';
 import Ring from '../Ring';
 import RingDisplay from '../RingDisplay';
+import * as Location from "expo-location"
+import { LocationObject } from 'expo-location';
 
 export default function Home() {
   const [accountName, setAccountName] = useState("Benjamin")
   const [collectedTokens, setCollectedTokens] = useState(0)
-  const [location, setLocation] = useState()
+  const [location, setLocation] = useState(null)
 
-      useEffect(() => {
-    navigator.geolocation.watchPosition((position) => {
-      setLocation(`${position.coords.latitude} ${position.coords.longitude} ${position.coords.accuracy} ${position.coords.altitude}`)
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      setLocation(await Location.getCurrentPositionAsync({
+        accuracy: Location.Accuracy.Highest
+      }))
       console.log("Got location")
-      var enableHighAccuracy = true;
-      geolocation.requestAuthorization(); 
-    })
-  }, []) 
+    }, 100)
+    return () => clearInterval(interval)
+  }, [location]) 
 
   return (
     <SafeAreaView style={styles.container}>
@@ -34,7 +37,7 @@ export default function Home() {
     }}>
       <Text>Add 50 TK</Text>
     </TouchableHighlight>
-    <Text style={{fontSize: 24}}>{location}</Text>
+    <Text style={{fontSize: 24}}>{JSON.stringify(location?.coords)}</Text>
     <View style={styles.row}>
       <RingDisplay tokens={collectedTokens} />
     </View>
