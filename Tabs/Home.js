@@ -10,14 +10,24 @@ export default function Home() {
   const [accountName, setAccountName] = useState("Benjamin")
   const [collectedTokens, setCollectedTokens] = useState(0)
   const [location, setLocation] = useState(null)
+  let previousLocation = {}
 
   useEffect(() => {
     const interval = setInterval(async () => {
-      setLocation(await Location.getCurrentPositionAsync({
+      let location = await Location.getCurrentPositionAsync({
         accuracy: Location.Accuracy.Highest
-      }))
+      })
+      setLocation(location)
       console.log("Got location")
-    }, 100)
+      if (previousLocation != {}) {
+        let distance = Math.abs(Math.sqrt((previousLocation.coords.longitude - location.coords.longitude) + (previousLocation.coords.latitude - location.coords.latitude)))
+        setCollectedTokens((token) => {
+          return tokens + distance * 100
+        })
+      }
+      previousLocation = location
+      
+    }, 1000)
     return () => clearInterval(interval)
   }, [location]) 
 
