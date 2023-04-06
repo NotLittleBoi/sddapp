@@ -14,6 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(async () => {
+      await Location.requestForegroundPermissionsAsync();
       await Location.requestBackgroundPermissionsAsync();
       let location = await Location.getCurrentPositionAsync({
         accuracy: Location.Accuracy.Highest
